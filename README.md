@@ -8,7 +8,7 @@
 </div>
 
 ### index
-<a href="https://github.com/GUEST-1001/NigGet/releases/latest" ><strong>Download »</strong> </a>
+<a href="https://github.com/GUEST-1001/NigGet/releases/latest" target="_blank"><strong>Download »</strong> </a>
 
 <a href="https://youtu.be/NoYuju4vXY8" ><strong>Video Review »</strong> </a>
 
