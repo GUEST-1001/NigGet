@@ -17,6 +17,7 @@ public class CamCon : NetworkBehaviour
         if (!this.isLocalPlayer)
         {
             mainCam.gameObject.SetActive(false);
+
         }
     }
     private void Update()

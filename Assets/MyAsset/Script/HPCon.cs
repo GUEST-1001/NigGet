@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HPCon : NetworkBehaviour
 {
+    static public HPCon insten;
 
     [SyncVar]
     public int MyHP = 5;
     public TextMesh HpTextHead;
     public bool HpWait;
     public TMP_Text HpTextUI;
+    public GameObject roof;
 
     void Awake()
     {
@@ -30,7 +33,9 @@ public class HPCon : NetworkBehaviour
         CmdHPUp();
         if (this.isLocalPlayer)
         {
-            this.HpTextUI.text = MyHP.ToString();
+            // var cHit = GetComponent<ClickHitP2>();
+            // Debug.Log(cHit);
+            this.HpTextUI.text = "HP " + MyHP.ToString();
         }
 
     }
@@ -48,6 +53,25 @@ public class HPCon : NetworkBehaviour
         Debug.Log("Get hit");
         MyHP -= 1;
         HpTextHead.text = MyHP.ToString();
+        if (MyHP <= 0)
+        {
+            CmdGoToDead();
+            SendDead();
+        }
+    }
+
+    [Command]
+    void CmdGoToDead()
+    {
+        GoToDead();
+    }
+    [TargetRpc]
+    void GoToDead()
+    {
+        roof = GameObject.FindWithTag("roof");
+        Debug.Log(roof);
+        roof.SetActive(false);
+        gameObject.transform.position = new Vector3(110f, 100f, 50f);
     }
 
     [Command]
@@ -68,6 +92,13 @@ public class HPCon : NetworkBehaviour
         {
             CmdHPDown();
         }
+    }
+
+    [Command]
+    void SendDead()
+    {
+        var count = FindObjectOfType<CustomNetwork>();
+        count.MinNigget();
     }
 
     // IEnumerator HpDownWait()
