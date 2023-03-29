@@ -53,7 +53,7 @@ public class HPCon : NetworkBehaviour
         Debug.Log("Get hit");
         MyHP -= 1;
         HpTextHead.text = MyHP.ToString();
-        if (MyHP <= 0)
+        if (MyHP < 1)
         {
             CmdGoToDead();
             SendDead();

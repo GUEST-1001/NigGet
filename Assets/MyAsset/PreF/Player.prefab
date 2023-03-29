@@ -493,7 +493,7 @@ MonoBehaviour:
   syncInterval: 0.1
   mouseSensitivity: 2
   movementSpeed: 10
-  jumpForce: 5
+  jumpForce: 7
   gravity: 9.8
 --- !u!114 &733091902181892035
 MonoBehaviour:

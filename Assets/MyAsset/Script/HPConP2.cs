@@ -51,7 +51,7 @@ public class HPConP2 : NetworkBehaviour
     {
         MyHP -= 1;
         HpTextHead.text = MyHP.ToString();
-        if (MyHP <= 0)
+        if (MyHP < 1)
         {
             GoToDead();
             SendDead();
@@ -102,11 +102,11 @@ public class HPConP2 : NetworkBehaviour
     void UpdateCount()
     {
         var count = FindObjectOfType<CustomNetwork>();
-        if (count.SendKaTi() <= 0)
+        if (count.SendKaTi() < 1)
         {
             CmdNigetWin();
         }
-        if (count.SendNigget() <= 0)
+        if (count.SendNigget() < 1)
         {
             CmdKaTiWin();
         }

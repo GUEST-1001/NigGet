@@ -11,6 +11,9 @@ public class TitleModul : MonoBehaviour
     public GameObject creditCanvas;
     public bool creditOpen = false;
     public TMP_Text creditText;
+    public GameObject howToCanvas;
+    public bool HowToOpen = false;
+    public TMP_Text HowToText;
 
     private void Start()
     {
@@ -44,6 +47,22 @@ public class TitleModul : MonoBehaviour
             creditOpen = !creditOpen;
             creditText.text = "Credit";
             creditCanvas.SetActive(false);
+        }
+    }
+
+    public void GoHowTo()
+    {
+        if (!HowToOpen)
+        {
+            HowToOpen = !HowToOpen;
+            HowToText.text = "Back";
+            howToCanvas.SetActive(true);
+        }
+        else
+        {
+            HowToOpen = !HowToOpen;
+            HowToText.text = "?";
+            howToCanvas.SetActive(false);
         }
     }
 

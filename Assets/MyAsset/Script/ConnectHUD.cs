@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ConnectHUD : MonoBehaviour
 {
@@ -36,5 +37,9 @@ public class ConnectHUD : MonoBehaviour
         manager.networkAddress = ip_InputField.text;
         manager.StartClient();
     }
-
+    
+        public void GoTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
